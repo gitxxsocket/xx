@@ -1,3 +1,12 @@
+
+{
+    "cmake.generator": "MinGW Makefiles"
+}
+
+pacman -S mingw-w64-x86_64-cmake
+
+
+
 **程序运行时动态连接。多个进程可以连接同一个共享库。**
 #include "..."; 语句将首先在工作目录寻找相应文件。如果使用gcc时，增加-I选项，将在-I提供的路径中寻找。
 
