@@ -1,9 +1,21 @@
+2.安装并配置Clang#
+安装Clang和LLVM#
+​ 打开msys2，输入pacman -S mingw64/mingw-w64-x86_64-make mingw64/mingw-w64-x86_64-gdb mingw64/mingw-w64-x86_64-clang按照提示，就可以完成Clang的安装了。如果想安装Clangd，还得再执行pacman -S mingw64/mingw-w64-x86_64-clang-tools-extra
+pacman -S mingw64/mingw-w64-x86_64-cmake
+
+[Lee@leedd tmp]$ tar -zcvf  test.tar.gz    test        ### 打包后以gzip压缩
+[Lee@leedd tmp]$ tar -jcvf  test.tar.bz2   test        ### 打包后以bzip2压缩
+
+添加环境变量#
+​ 随后将C:\msys64\mingw64\bin添加到Path中，输入clang -v，如果想测试之前安装的Clangd，只需输入clangd即可
+
+
 
 {
     "cmake.generator": "MinGW Makefiles"
 }
 
-pacman -S mingw-w64-x86_64-cmake
+
 
 
 
