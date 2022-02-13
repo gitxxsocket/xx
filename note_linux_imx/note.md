@@ -3,6 +3,13 @@
 ​ 打开msys2，输入pacman -S mingw64/mingw-w64-x86_64-make mingw64/mingw-w64-x86_64-gdb mingw64/mingw-w64-x86_64-clang按照提示，就可以完成Clang的安装了。如果想安装Clangd，还得再执行pacman -S mingw64/mingw-w64-x86_64-clang-tools-extra
 pacman -S mingw64/mingw-w64-x86_64-cmake
 
+
+settings.json
+{
+    "cmake.generator": "MinGW Makefiles"
+}
+
+
 [Lee@leedd tmp]$ tar -zcvf  test.tar.gz    test        ### 打包后以gzip压缩
 [Lee@leedd tmp]$ tar -jcvf  test.tar.bz2   test        ### 打包后以bzip2压缩
 
