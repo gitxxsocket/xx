@@ -47,6 +47,7 @@ $gcc -shared -o libmystack.so mystack.o
 $gcc -g -o test test.c -lmystack -L. -Wl,-rpath=.
 
 M3jKfi74CtCd7b9
+
 Qb9YQS45gDDxWd7
 
 假如我们现在在dev分支上，刚开发完项目，执行了下列命令：
