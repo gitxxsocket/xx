@@ -120,7 +120,7 @@ eval $(ssh-agent -s)
 ssh-keygen -t rsa -C "_______@outlook.com"
 
 
-pacman -Sy 同步软件包数据库，然后再输入 pacman -Su 更新软件包，期间 msys2 提示你输入 y 之后会关闭，重新打开 再输入一遍 pacman -Su 即可。
+pacman -Sy 同步软件包数据库，然后再输入 pacman -Su 更新软件包，期间 msys2 提示你输入 y 之后会关闭，重新打开 再输入一遍 pacman -Su 即可 md184792。
 
 安装并配置 Clang
 安装 Clang 和 LLVM
