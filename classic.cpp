@@ -23,3 +23,56 @@ int main()
 
 	return 0;
 }
+
+/////////////VECTOR
+
+class XData
+{
+public:
+	XData()
+	{
+		cout << "XData() XData() XData() " << endl;
+	}
+
+	~XData()
+	{
+		cout << "~XData() ~XData() ~XData()" << endl;
+	}
+
+	XData& operator = (const XData& d) {
+		this->index = d.index; cout << "XData& operator =   " << index << endl; return *this;
+	}
+
+	XData(const XData& other) {
+		this->index = other.index;
+		cout << "XData(const XData& other)     " << endl;
+	}
+
+
+	int index{ 0 };
+};
+
+vector<XData> TestVector(vector<XData>& data) {
+	cout << "data.data()  " << data.data() << endl;
+	vector<XData> re;
+	re.resize(3);
+	cout << "data.data()  " << data.data() << endl;
+	cout << "re.size()*sizeof(XData)  " << re.size()*sizeof(XData) << endl;
+	return re;
+}
+
+int main() {
+
+	vector<XData> vd;
+	XData d;
+		d.index = 1;
+		vd.push_back(d);
+		d.index = 2;
+		vd.push_back(d);
+		d.index = 3;
+		vd.push_back(d);	
+	auto rd =TestVector(vd);
+	cout<<"vd.data()  " << rd.data() << endl;
+
+	return 0;
+}
