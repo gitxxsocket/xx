@@ -24,7 +24,7 @@ int main()
 	return 0;
 }
 
-/////////////VECTOR
+/////////////////////////////////////////////////////////////VECTOR
 
 class XData
 {
@@ -76,3 +76,92 @@ int main() {
 
 	return 0;
 }
+
+
+////////////////////////////////////////////////////////////////////////thread
+
+#include <iostream>
+#include <thread>
+#include <string>
+
+using namespace std;
+
+class MyThread
+{
+public:
+    void Main()
+    {
+        cout << "MyThread Main ------" << name << " : " << age << endl;
+    }
+    string name = "";
+    int age = {18};
+};
+
+class XThread
+{
+    std::thread th_;
+    virtual void Main() = 0;
+    bool is_exit_ = false;
+
+public:
+    virtual void Start()
+    {
+        is_exit_ = false;
+        th_ = std::thread(&XThread::Main, this);
+    }
+    virtual void Wait()
+    {
+        if (th_.joinable())
+            th_.join();
+    }
+    virtual void Stop()
+    {
+        is_exit_ = true;
+        Wait();
+    }
+    bool is_exit()
+    {
+        return is_exit_;
+    }
+};
+
+class TestXThread : public XThread
+{
+public:
+    void Main() override
+    {
+        cout << "TestXThread Main begin .. " << endl;
+        cout << " TestXThread   Main ------" << endl;
+        while (!is_exit())
+        {
+            this_thread::sleep_for(100ms);
+            cout << "." << flush;
+        }
+        cout << "TestXThread Main endl .. " << endl;
+    }
+    string name;
+};
+
+int main()
+{
+
+    TestXThread testth;
+    testth.name = "TestXThread name";
+    testth.Start();
+
+    this_thread::sleep_for(3s);
+
+    testth.Stop();
+
+    testth.Wait();
+
+    getchar();
+
+    MyThread myth;
+    myth.name = "Tese_t";
+    myth.age = 20;
+    thread th(&MyThread::Main, &myth);
+    th.join();
+    return 0;
+}
+
